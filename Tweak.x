@@ -46,6 +46,7 @@ static void DEMC_centerRenderingView();
 // New video played
 - (void)playbackController:(id)playbackController didActivateVideo:(id)video withPlaybackData:(id)playbackData {
     %orig;
+    if ([self.parentViewController isKindOfClass:NSClassFromString(@"YTInlineMutedPlaybackWatchViewController")]) return;
     isEngagementPanelVisible = NO;
     isEngagementPanelViewControllerRemoved = NO;
     if ([[self activeVideoPlayerOverlay] isFullscreen])
